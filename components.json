@@ -1,0 +1,134 @@
+[
+  {
+    "name": "header",
+    "selector": "header",
+    "type": "nav",
+    "slots": [
+      "heading",
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-m4dmz6",
+      "text-wh65",
+      "color-ghymq9"
+    ]
+  },
+  {
+    "name": "footer",
+    "selector": "footer",
+    "type": "footer",
+    "slots": [
+      "heading",
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-m4dmz6",
+      "text-wh65",
+      "color-ghymq9"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card",
+    "type": "card",
+    "slots": [
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card:nth-of-type(2)",
+    "type": "card",
+    "slots": [
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card:nth-of-type(3)",
+    "type": "card",
+    "slots": [
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card:nth-of-type(4)",
+    "type": "card",
+    "slots": [
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card:nth-of-type(5)",
+    "type": "card",
+    "slots": [
+      "text"
+    ],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  },
+  {
+    "name": "card",
+    "selector": "div.card:nth-of-type(6)",
+    "type": "card",
+    "slots": [],
+    "variants": [],
+    "animations": [],
+    "tokens": [
+      "color-355ter",
+      "color-m4dmz6",
+      "text-wh65",
+      "rounded-wcpz",
+      "shadow-ogqdi2"
+    ]
+  }
+]

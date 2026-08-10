@@ -1,0 +1,254 @@
+[
+  {
+    "name": "color-355ter",
+    "category": "color",
+    "value": "rgb(34, 34, 34)",
+    "usageCount": 249,
+    "originalValues": [
+      "rgb(34, 34, 34)"
+    ]
+  },
+  {
+    "name": "transition-22ld",
+    "category": "transition",
+    "value": "all",
+    "usageCount": 67,
+    "originalValues": [
+      "all"
+    ]
+  },
+  {
+    "name": "color-m4dmz6",
+    "category": "color",
+    "value": "rgb(255, 255, 255)",
+    "usageCount": 61,
+    "originalValues": [
+      "rgb(255, 255, 255)"
+    ]
+  },
+  {
+    "name": "text-wh65",
+    "category": "font-size",
+    "value": "16px",
+    "usageCount": 54,
+    "originalValues": [
+      "16px"
+    ]
+  },
+  {
+    "name": "leading-oi8rdf",
+    "category": "line-height",
+    "value": "25.6px",
+    "usageCount": 54,
+    "originalValues": [
+      "25.6px"
+    ]
+  },
+  {
+    "name": "color-8yfidz",
+    "category": "color",
+    "value": "rgba(0, 0, 0, 0)",
+    "usageCount": 53,
+    "originalValues": [
+      "rgba(0, 0, 0, 0)"
+    ]
+  },
+  {
+    "name": "font-13qs",
+    "category": "font-weight",
+    "value": "400",
+    "usageCount": 51,
+    "originalValues": [
+      "400"
+    ]
+  },
+  {
+    "name": "color-ghymq9",
+    "category": "color",
+    "value": "rgb(0, 51, 102)",
+    "usageCount": 43,
+    "originalValues": [
+      "rgb(0, 51, 102)"
+    ]
+  },
+  {
+    "name": "font-15yv",
+    "category": "font-weight",
+    "value": "700",
+    "usageCount": 17,
+    "originalValues": [
+      "700"
+    ]
+  },
+  {
+    "name": "rounded-wcpz",
+    "category": "border-radius",
+    "value": "10px",
+    "usageCount": 10,
+    "originalValues": [
+      "10px"
+    ]
+  },
+  {
+    "name": "shadow-ogqdi2",
+    "category": "shadow",
+    "value": "rgba(0, 0, 0, 0.08) 0px 2px 10px 0px",
+    "usageCount": 10,
+    "originalValues": [
+      "rgba(0, 0, 0, 0.08) 0px 2px 10px 0px"
+    ]
+  },
+  {
+    "name": "text-x2oa",
+    "category": "font-size",
+    "value": "24px",
+    "usageCount": 7,
+    "originalValues": [
+      "24px"
+    ]
+  },
+  {
+    "name": "leading-p0xq2b",
+    "category": "line-height",
+    "value": "38.4px",
+    "usageCount": 7,
+    "originalValues": [
+      "38.4px"
+    ]
+  },
+  {
+    "name": "space-x3ez",
+    "category": "spacing",
+    "value": "25px",
+    "usageCount": 6,
+    "originalValues": [
+      "25px"
+    ]
+  },
+  {
+    "name": "space-wzpi",
+    "category": "spacing",
+    "value": "20px",
+    "usageCount": 5,
+    "originalValues": [
+      "20px"
+    ]
+  },
+  {
+    "name": "text-yvz3au",
+    "category": "font-size",
+    "value": "18.72px",
+    "usageCount": 5,
+    "originalValues": [
+      "18.72px"
+    ]
+  },
+  {
+    "name": "leading-rglynr",
+    "category": "line-height",
+    "value": "29.952px",
+    "usageCount": 5,
+    "originalValues": [
+      "29.952px"
+    ]
+  },
+  {
+    "name": "color-ri8dg9",
+    "category": "color",
+    "value": "rgb(245, 247, 250)",
+    "usageCount": 1,
+    "originalValues": [
+      "rgb(245, 247, 250)"
+    ]
+  },
+  {
+    "name": "text-yb5y",
+    "category": "font-size",
+    "value": "42px",
+    "usageCount": 1,
+    "originalValues": [
+      "42px"
+    ]
+  },
+  {
+    "name": "leading-qfir65",
+    "category": "line-height",
+    "value": "67.2px",
+    "usageCount": 1,
+    "originalValues": [
+      "67.2px"
+    ]
+  },
+  {
+    "name": "text-winj",
+    "category": "font-size",
+    "value": "18px",
+    "usageCount": 1,
+    "originalValues": [
+      "18px"
+    ]
+  },
+  {
+    "name": "leading-ojw6mw",
+    "category": "line-height",
+    "value": "28.8px",
+    "usageCount": 1,
+    "originalValues": [
+      "28.8px"
+    ]
+  },
+  {
+    "name": "rounded-16ta",
+    "category": "border-radius",
+    "value": "6px",
+    "usageCount": 1,
+    "originalValues": [
+      "6px"
+    ]
+  },
+  {
+    "name": "color-9eoixa",
+    "category": "color",
+    "value": "rgb(238, 245, 255)",
+    "usageCount": 1,
+    "originalValues": [
+      "rgb(238, 245, 255)"
+    ]
+  },
+  {
+    "name": "space-wgfg",
+    "category": "spacing",
+    "value": "15px",
+    "usageCount": 1,
+    "originalValues": [
+      "15px"
+    ]
+  },
+  {
+    "name": "space-xmp1",
+    "category": "spacing",
+    "value": "30px",
+    "usageCount": 1,
+    "originalValues": [
+      "30px"
+    ]
+  },
+  {
+    "name": "z-5y755g",
+    "category": "z-index",
+    "value": "2147483647",
+    "usageCount": 1,
+    "originalValues": [
+      "2147483647"
+    ]
+  },
+  {
+    "name": "transition-fv65k1",
+    "category": "transition",
+    "value": "0.5s ease-in-out",
+    "usageCount": 1,
+    "originalValues": [
+      "0.5s ease-in-out"
+    ]
+  }
+]
