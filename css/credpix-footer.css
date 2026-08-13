@@ -1,0 +1,44 @@
+.credpix-site-footer {
+  margin-top: auto;
+  padding: 16px 20px 24px;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  text-align: center;
+}
+
+body:has(> .credpix-site-footer),
+body:has(> #root + .credpix-site-footer) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:has(> #root + .credpix-site-footer) #root,
+body:has(> .app-shell) .app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.credpix-site-footer p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.55;
+  color: #64748b;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.credpix-site-footer--dark {
+  background: #145A14;
+  border-top-color: #1B5E20;
+}
+
+.credpix-site-footer--dark p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.credpix-legal-text {
+  font-size: 11px;
+  line-height: 1.55;
+}

