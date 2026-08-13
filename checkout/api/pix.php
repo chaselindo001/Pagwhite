@@ -56,7 +56,21 @@ if ($action === 'generate') {
         $phone = '11999999999';
     }
 
-    $amountCents = intval($input['amount_cents'] ?? $prod['cents']);
+    $amountCents = 0;
+    if (isset($input['amount_cents']) && is_numeric($input['amount_cents'])) {
+        $amountCents = intval($input['amount_cents']);
+    } elseif (isset($input['cents']) && is_numeric($input['cents'])) {
+        $amountCents = intval($input['cents']);
+    } elseif (isset($input['parcela_valor']) && is_numeric($input['parcela_valor'])) {
+        $amountCents = intval(round(floatval($input['parcela_valor']) * 100));
+    } elseif (isset($input['valor']) && is_numeric($input['valor'])) {
+        $amountCents = intval(round(floatval($input['valor']) * 100));
+    } elseif (isset($input['amount']) && is_numeric($input['amount'])) {
+        $val = floatval($input['amount']);
+        $amountCents = ($val > 1000 && floor($val) == $val) ? intval($val) : intval(round($val * 100));
+    } else {
+        $amountCents = intval($prod['cents']);
+    }
 
     $payload = [
         'amount' => $amountCents,
